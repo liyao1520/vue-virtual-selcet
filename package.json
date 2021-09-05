@@ -1,0 +1,26 @@
+{
+  "name": "vue-virtual-selcet",
+  "version": "0.0.1",
+  "description": "一个vue2的虚拟列表选择器(virtual-select)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "vue2",
+    "select",
+    "virtual",
+    "virtual-selcet",
+    "virtual-list",
+    "虚拟列表选择器"
+  ],
+  "author": "luxian",
+  "license": "ISC",
+  "dependencies": {
+    "vue-virtual-scroll-list": "^2.3.2"
+  }
+}
