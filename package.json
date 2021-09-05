@@ -1,6 +1,6 @@
 {
   "name": "vue-virtual-selcet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "一个vue2的虚拟列表选择器(virtual-select)",
   "main": "index.js",
   "directories": {
@@ -20,6 +20,7 @@
   ],
   "author": "luxian",
   "license": "ISC",
+  "homepage": "https://github.com/liyao1520/vue-virtual-selcet",
   "dependencies": {
     "vue-virtual-scroll-list": "^2.3.2"
   }
