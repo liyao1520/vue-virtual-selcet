@@ -1,7 +1,7 @@
 <template>
   <div
     @click="itemClick(source)"
-    :class="{ selceted: currentVal == source.value }"
+    :class="{ selceted: currentValue == source.value }"
   >
     {{ source.label }}
   </div>
@@ -16,11 +16,10 @@ export default {
       this.selceted = true;
     },
   },
-  mounted() {
-    this.currentVal = this.$parent.$parent.$parent.selectValue;
-    bus.$on("change", (val) => {
-      this.currentVal = val;
-    });
+  computed: {
+    currentValue() {
+      return this.$parent.$parent.$parent.selectValue;
+    },
   },
   data() {
     return {

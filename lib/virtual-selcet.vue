@@ -32,7 +32,7 @@
         v-show="isListShow"
         class="virtual-list"
         :data-component="virtualSelcetItem"
-        data-key="value"
+        :data-key="dataKey"
         :data-sources="selectOptions"
         style="height: 360px; overflow-y: auto"
         item-class="virtual-list-item-class"
@@ -54,12 +54,18 @@ export default {
   },
   props: {
     value: {
-      type: String | Number,
+      type: String | Number | Object,
     },
     options: {
       type: Array,
       default() {
         return [];
+      },
+    },
+    dataKey: {
+      type: Function,
+      default: function (option) {
+        return option.value;
       },
     },
     filterable: {
@@ -125,6 +131,31 @@ export default {
     },
   },
   mounted() {
+    var unwatch = this.$watch(
+      "value",
+      (initVal) => {
+        if (unwatch) {
+          unwatch();
+        } else {
+          this.selectValue = initVal;
+          const timer = setInterval(() => {
+            if (this.options) {
+              const option = this.options.find(
+                (item) => this.dataKey(item) == initVal
+              );
+              if (option) {
+                this.inputValue = option.label;
+                this.placeholder = option.label;
+              }
+              clearInterval(timer);
+            }
+          }, 100);
+        }
+      },
+      {
+        immediate: true,
+      }
+    );
     bus.$on("virtual-selcet-change", (e) => {
       this.$refs.input.setAttribute("placeholder", e.label);
       this.inputValue = e.label;

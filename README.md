@@ -33,12 +33,13 @@ Vue.use(virtualSelcet);
 
 ### Attributes
 
-| 参数         | 说明                                        | 类型     | 默认值                                                       |
-| ------------ | ------------------------------------------- | -------- | ------------------------------------------------------------ |
-| options      | select的选项,例:[{value:"值",label:"标签"}] | Array    | []                                                           |
-| placeholder  | 占位符                                      | string   | 请选择                                                       |
-| filterable   | 是否可搜索                                  | boolean  | true                                                         |
-| filterMethod | 自定义搜索方法                              | function | function(val, optionList) { return optionList.filter((item) => item.label.toLowerCase().indexOf(val.toLowerCase()) == -1 ? false : true ); } |
+| 参数          | 说明                                                         | 类型               | 默认值                                                       |
+| ------------- | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
+| options       | select的选项,例:[{value:"值",label:"标签"}]                  | Array              | []                                                           |
+| placeholder   | 占位符                                                       | string             | 请选择                                                       |
+| filterable    | 是否可搜索                                                   | boolean            | true                                                         |
+| filter-method | 自定义搜索方法                                               | function           | function(val, optionList) { return optionList.filter((item) => item.label.toLowerCase().indexOf(val.toLowerCase()) == -1 ? false : true ); } |
+| data-key      | 每个options数据对象中获取的唯一键,它的值**必须是唯一,且类型为数字或者字符串** | string \| function | function (option) { return option.value; }                   |
 
 ### Events
 
